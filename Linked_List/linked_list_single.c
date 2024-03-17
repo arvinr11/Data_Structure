@@ -2,14 +2,14 @@
 #include <string.h>
 #include <stdlib.h>
 
-struct data
+struct data  // => Struct untuk menyimpan usia dan pointer ke node berikutnya
 {
     int age;
 
     struct data *next;
 };
 
-struct data *create_node(int age)
+struct data *create_node(int age) // => untuk membuat node baru dengan usia yang diberikan
 {
     struct data *new_node = (struct data*)malloc(sizeof(struct data));
 
@@ -19,7 +19,7 @@ struct data *create_node(int age)
     return new_node;
 }
 
-struct data *push_head(struct data *head, int age)
+struct data *push_head(struct data *head, int age) // => untuk menambahkan node baru ke depan linked list
 {
     struct data *new_node = create_node(age);
 
@@ -29,7 +29,7 @@ struct data *push_head(struct data *head, int age)
     return head;
 }
 
-struct data *push_mid(struct data *head, int age, int posisi)
+struct data *push_mid(struct data *head, int age, int posisi) // => untuk menambahkan node baru pada posisi tertentu dalam linked list
 {
     struct data *new_node = create_node(age);
 
@@ -47,7 +47,7 @@ struct data *push_mid(struct data *head, int age, int posisi)
     return head;
 }
 
-struct data *push_tail(struct data *head, int age)
+struct data *push_tail(struct data *head, int age) // => untuk menambahkan node baru ke ujung linked list
 {
     struct data *new_node = create_node(age);
     struct data *temp;
@@ -62,7 +62,7 @@ struct data *push_tail(struct data *head, int age)
     return head;
 }
 
-struct data *pop_head(struct data *head)
+struct data *pop_head(struct data *head) // => untuk menghapus node pertama dari linked list
 {
     struct data *temp;
     temp = head;
@@ -72,7 +72,7 @@ struct data *pop_head(struct data *head)
     return head;
 }
 
-struct data *pop_search(struct data *head, int age)
+struct data *pop_search(struct data *head, int age) // => untuk menghapus node dengan usia tertentu dari linked list
 {
     struct data *temp = head;
     struct data *prev = NULL;
@@ -97,7 +97,7 @@ struct data *pop_search(struct data *head, int age)
     return head;
 }
 
-struct data *pop_tail(struct data *head)
+struct data *pop_tail(struct data *head) // => untuk menghapus node terakhir dari linked list
 {
     struct data *temp;
     struct data *curr;
@@ -115,7 +115,7 @@ struct data *pop_tail(struct data *head)
     return head;
 }
 
-void print_linked_list(struct data *head)
+void print_linked_list(struct data *head) // => untuk mencetak semua nilai usia dalam linked list
 {
     struct data *temp;
     temp = head;

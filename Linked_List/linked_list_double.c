@@ -2,7 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-struct data
+struct data // => Struct untuk menyimpan usia dan pointer ke node sebelumnya dan sesudahnya dalam linked list
 {
     int age;
 
@@ -10,11 +10,11 @@ struct data
     struct data *prev;
 };
 
-struct data *head = NULL;
+struct data *head = NULL; // => Pointer global untuk node pertama, tengah, dan terakhir dalam linked list
 struct data *mid = NULL;
 struct data *tail = NULL;
 
-struct data *create_node(int age)
+struct data *create_node(int age) // => untuk membuat node baru dengan usia yang diberikan
 {
     struct data *new_node = (struct data*)malloc(sizeof(struct data));
 
@@ -25,7 +25,7 @@ struct data *create_node(int age)
     return new_node;
 }
 
-void print_linked_list(struct data *head)
+void print_linked_list(struct data *head) // => untuk mencetak semua nilai usia dalam linked list
 {
     struct data *temp;
     temp = head;
@@ -38,7 +38,7 @@ void print_linked_list(struct data *head)
     }
 }
 
-void push_head(int age)
+void push_head(int age) // => untuk menambahkan node baru ke depan linked list
 {
     struct data *new_node = create_node(age);
 
@@ -48,7 +48,7 @@ void push_head(int age)
     head = new_node;
 }
 
-void push_mid(int age)
+void push_mid(int age) // => untuk menambahkan node baru pada posisi tengah linked list
 {
    struct data *new_node = create_node(age);
 
@@ -71,7 +71,7 @@ void push_mid(int age)
     }
 }
 
-void push_tail(int age)
+void push_tail(int age) // => untuk menambahkan node baru ke ujung linked list
 {
     struct data *new_node = create_node(age);
 
@@ -81,7 +81,7 @@ void push_tail(int age)
     tail = new_node;
 }
 
-void pop_head()
+void pop_head() // => untuk menghapus node pertama dari linked list
 {
     struct data *temp;
     temp = head;
@@ -92,7 +92,7 @@ void pop_head()
     free(temp);
 }
 
-void pop_mid()
+void pop_mid() // => untuk menghapus node tengah dari linked list
 {
     if(mid == NULL){
         return;
@@ -117,7 +117,7 @@ void pop_mid()
     free(temp);
 }
 
-void pop_tail()
+void pop_tail() // => untuk menghapus node terakhir dari linked list
 {
     struct data *temp;
     temp = tail;
